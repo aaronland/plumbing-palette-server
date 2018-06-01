@@ -1,23 +1,20 @@
 #!/usr/bin/env python
 
-from setuptools import setup
+import os
+import sys
+import shutil
+
+from setuptools import setup, find_packages
+
+packages = find_packages()
+desc = open("README.md").read()
+version = open("VERSION").read()
 
 setup(name='plumbing-palette-server',
-      version='0.22',
+      version=version,
       description='A Flask-based HTTP pony for extracting colors from images',
       author='Cooper Hewitt Smithsonian Design Museum',
       url='https://github.com/cooperhewitt/plumbing-palette-server',
-      requires=[
-      ],
-      dependency_links=[
-          'https://github.com/cooperhewitt/py-cooperhewitt-flask/tarball/master#egg=cooperhewitt.flask-0.35',
-          'https://github.com/cooperhewitt/py-cooperhewitt-roboteyes-colors/tarball/master#egg=cooperhewitt.roboteyes-colors-0.1',
-      ],
-      install_requires=[
-          'cooperhewitt.flask',
-          'cooperhewitt.roboteyes.colors',
-      ],
-      packages=[],
       scripts=[
           'scripts/palette-server.py',
       ],
